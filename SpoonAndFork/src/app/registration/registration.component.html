@@ -1,0 +1,110 @@
+<div id="registration">
+  <app-header></app-header>
+  <section>
+    <div id="imgBx">
+      <img src="../../assets/as.jpg" alt="">
+     </div>
+  <div class="container">
+    <section class="container mt-5">
+      <div id="formBx" class="d-flex justify-content-center">
+        <div class="p-4 rounded shadow-lg bg-light text-dark animate__animated animate__fadeIn">
+
+          <h2 class="mb-4 text-center">Register yourself</h2>
+
+          <form (ngSubmit)="addUser()" [formGroup]="registrationForm">
+
+            <!-- Email -->
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <input matInput type="text" name="email" placeholder="Enter your Email" formControlName="email" required>
+                <mat-error *ngIf="email?.hasError('required') && email?.dirty">
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="email?.hasError('checkIfGuestEmailsAreValid') === false && email?.dirty">
+                  Not a valid email
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <input matInput [type]="hide ? 'password' : 'text'" name="password" placeholder="Enter your Password" formControlName="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="password?.hasError('required') && password?.dirty">
+                  Password is required
+                </mat-error>
+                <mat-error *ngIf="password?.hasError('pattern')">
+                  Password should have a minimum of 7 characters, with at least one symbol, uppercase and lowercase letters, and a number.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <input matInput [type]="hide ? 'password' : 'text'" name="confirmPassword" placeholder="Confirm your Password" formControlName="confirmPassword" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="registrationForm.hasError('mustMatch') === false">
+                  Passwords must match
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Name -->
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <input matInput type="text" name="name" placeholder="Enter your name" formControlName="name" required>
+                <mat-error *ngIf="name?.hasError('required') && name?.dirty">
+                  Name is required
+                </mat-error>
+                <mat-error *ngIf="name?.hasError('minlength')">
+                  <!-- Name must be {{ name?.errors?.minlength.requiredLength }} characters long -->
+                  Name must be {{name?.errors?.['minlength']?.requiredLength}} characters long  
+                  \
+                </mat-error>
+                <mat-error *ngIf="name?.hasError('pattern')">
+                  Only characters are allowed, not numbers
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+              <mat-form-field appearance="outline" class="w-100">
+                <input matInput type="text" name="phoneNo" placeholder="Enter your Mobile no." formControlName="phoneNo" required>
+                <mat-error *ngIf="phone?.hasError('required') && phone?.dirty">
+                  Mobile number is required
+                </mat-error>
+                <mat-error *ngIf="phone?.hasError('pattern')">
+                  Mobile no. must start with 7, 8, or 9
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="mb-3">
+              <div class="file-input-container">
+                <input type="file" (change)="onImageUpload($event)" accept=".png, .jpg, .jpeg" />
+                <!-- Add any additional styling or elements here -->
+              </div>
+            </div>
+            
+
+            <div class="mb-3 text-center">
+              <button id="buttonSubmit" type="submit" mat-raised-button color="primary" [disabled]="!registrationForm.valid">Register</button>
+            </div>
+
+          </form>
+          <p style="text-align: center; margin-top: 2%; color: black; font-size:20px;">
+            Already have an account? <a routerLink="/login" style="color: rgb(35, 29, 215);">Login</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+  </section>
+</div>

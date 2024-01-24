@@ -1,0 +1,85 @@
+<!-- <app-search (searchButtonClicked)="getLocation($event)"></app-search> -->
+
+<div id="bgImg" >
+    
+    <!-- <h1 style="text-align: center;">Have a delicious food at available restaurants !!</h1> -->
+    <div style="float: right;margin-top: -20px;"></div>
+
+   
+        <div class="cardCont"*ngIf="present == false">
+            <div *ngIf="isLoading" id="loading"></div>
+            <div class="card" *ngFor="let restaurant of restaurants" (click)="getItems(restaurant.restaurantId)">
+                <img src="{{restaurant.imageUrl}}" alt="">
+                <strong> <span style="text-transform:uppercase;">{{restaurant.restaurantName}}</span></strong>
+                <p>Location: {{restaurant.location}}</p>
+
+                <div class="github-star-badge">
+                    Rating: {{restaurant.rating}}
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- for restraunts -->
+
+        <div class="cardCont" *ngIf="present == true">
+            <div *ngIf="isLoading" id="loading"></div>
+            <div class="card" *ngFor="let restaurant of searchedRestaurants" (click)="getItems(restaurant.restaurantId)">
+                <img src="{{restaurant.imageUrl}}" alt="">
+                <span>{{restaurant.restaurantName}}</span>
+                <p>Location: {{restaurant.location}}</p>
+
+                <div class="github-star-badge">
+                    Rating: {{restaurant.rating}}
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- for items -->
+
+        <div *ngIf="present == true">
+            <h1 style="text-align: center;"> Looking for</h1>
+            <div class="cardContent"> 
+            <div *ngIf="isLoading" id="loading"></div>
+            <div class="card3" *ngFor="let item of searchedItems">
+                <img src="{{item.imageUrl}}" alt="{{item.itemName}}">
+                <br>
+                <!-- <mat-icon mat-raised-button="accent" style="margin-left: 10px;"[color]="restaurant.isClicked? 'warn' : 'primary'" 
+            (click)="addToFavourites(restaurant);" >favorite_border</mat-icon> -->
+                <span>{{item.itemName}}</span>
+                <br>
+                <span>Restaurant: {{ item.restaurantName }}</span><br>
+                <span>location:{{item.location}}</span>
+                <div id="price">
+                <span style="margin-left: 10px;">Price:<i id="cost" class="fa fa-rupee"></i> {{item.itemPrice}}</span>
+                <div class="rating" style="margin-right:10px;">
+                    Rating: {{item.itemRating}}
+                    <i id="star" class="fa fa-star"></i>
+                </div>
+                </div>
+                <div class="addToCart">
+                <button mat-raised-button color="primary" (click)="addToCart(item)">Add to Cart</button>
+            </div>
+            </div>
+        </div>
+
+        <!-- for location -->
+
+        <div class="cardCont" *ngIf="present == true">
+            <div *ngIf="isLoading" id="loading"></div>
+            <div class="card" *ngFor="let restaurant of searchedLocation" (click)="getItems(restaurant.restaurantId)">
+                <img src="{{restaurant.imageUrl}}" alt="">
+                <span>{{restaurant.restaurantName}}</span>
+                <p>Location: {{restaurant.location}}</p>
+
+                <div class="github-star-badge">
+                    Rating: {{restaurant.rating}}
+                    <i class="fa fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>

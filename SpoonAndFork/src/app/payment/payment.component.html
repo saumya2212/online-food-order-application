@@ -1,0 +1,37 @@
+<!-- payment.component.html -->
+<app-header></app-header>
+<section class="payment-container">
+  <div class="payment-form">
+    <form>
+      <h2>Payment Details</h2>
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod" name="paymentMethod" [(ngModel)]="selectedPaymentMethod" required>
+        <option value="creditCard">Credit Card</option>
+        <option value="phonepay">UPI Pay</option>
+        <option value="cashOnDelivery">Cash on Delivery</option>
+        <!-- Add other payment options as needed -->
+      </select>
+
+      <div *ngIf="selectedPaymentMethod === 'creditCard'">
+        <!-- Credit Card Fields -->
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="creditCardDetails.cardNumber" required>
+
+        <label for="expirationDate">Expiration Date:</label>
+        <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" [(ngModel)]="creditCardDetails.expirationDate" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" [(ngModel)]="creditCardDetails.cvv" required>
+      </div>
+
+      <div *ngIf="selectedPaymentMethod === 'phonepay'">
+        <!-- Phonepay Fields -->
+        <label for="upiId">UPI ID:</label>
+        <input type="text" id="upiId" name="upiId" [(ngModel)]="phonepayDetails.upiId" required>
+      </div>
+
+      <button mat-raised-button color="primary" (click)="processPayment()">Process Payment</button>
+    </form>
+  </div>
+</section>
+<app-footer></app-footer>

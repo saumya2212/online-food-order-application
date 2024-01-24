@@ -1,0 +1,81 @@
+ .example-card {
+    max-width: 350px;
+    text-align: center;  
+    box-shadow: 5px 5px 5px 5px rgb(150, 138, 162);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+ 
+ /* h1{
+    background-color: rgb(110, 110, 218);
+    color: whitesmoke;
+    max-width: max-content;
+    margin-left: 90px;
+    border-radius: 5px;
+    padding: 15px;
+  }
+
+section{
+  width: 100%;
+  margin-top: 130px;
+}  
+
+section #formAddItem{
+    margin:auto;
+    width: 50%;
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#formBx{
+  background:#113f67;
+  padding: 4%;
+  border-radius:6%;
+  box-shadow:10px 10px 190px -50px;
+  margin: 10px;
+  width: 60%;
+} */
+/* Additional CSS for styling and animation */
+.container{
+  padding-top: 3%;
+  
+ 
+}
+#background{
+  background-color: black;
+  background-size: cover;
+  height: 300%;
+  width: 100%;
+}
+#formBx {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border: 2px solid #3498db; /* Set border color */
+  border-radius: 10px; /* Set border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adjust box shadow for a subtle effect */
+  animation-duration: 1s;
+}
+
+@media (max-width: 576px) {
+  #formBx {
+    max-width: 100%;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate__fadeIn {
+  animation: fadeIn 1s;
+}

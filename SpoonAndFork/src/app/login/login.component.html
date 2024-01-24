@@ -1,0 +1,51 @@
+<app-header></app-header>
+<!-- Login Page -->
+<div id="loginPage">
+  <section>
+  <div id="imgBx">
+    <img src="../../assets/as.jpg" alt="">
+   </div>
+  
+  <div class="container">
+    <section class="container mt-5">
+      <div id="formBx" class="d-flex justify-content-center">
+        <div class="p-4 rounded shadow-lg bg-light text-dark animate__animated animate__fadeIn">
+
+        <h2 class="mb-4 text-center color black">Login Here</h2>
+
+        <form (ngSubmit)="loginCheck()" [formGroup]="loginForm">
+          <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput class="text" placeholder="Enter your Email" formControlName="email" required>
+            <!-- Add your mat-errors here as needed -->
+          </mat-form-field>
+          </div>
+          <div class="mb-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Password</mat-label>
+            <input matInput class="text" [type]="hide ? 'password' : 'text'" placeholder="Enter your Password" formControlName="password" id="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <!-- Add your mat-errors here as needed -->
+          </mat-form-field>
+          </div>
+
+         
+
+        <div class="mb-3 text-center">
+          <button id="buttonLogin" type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Sign In</button>
+        </div>
+
+      </form>
+      <p style="text-align: center; margin-top: 2%; color: black; font-size:20px;">
+        Don't have an account? <a routerLink="/registration" style="color: rgb(35, 29, 215);">Sign up</a>
+      </p>
+       
+    </div>
+  </div>
+</section>
+</div>
+</section>
+</div>

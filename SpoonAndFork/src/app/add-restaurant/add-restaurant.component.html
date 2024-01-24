@@ -1,0 +1,94 @@
+
+<!-- <section>
+
+    <div id="formAddRestaurant">
+       <div id="formBx">
+       
+          <h2 style="color: whitesmoke;">Add new restaurant..</h2>
+       
+        
+          <form [formGroup]="addform">
+          <mat-form-field appearance="fill"><input matInput type="text" name="restaurantId"
+             placeholder="Enter Restaurant Id" formControlName="restaurantId" required
+            ></mat-form-field>
+          <br>
+          <mat-form-field appearance="fill"><input matInput type="text" name="location"
+             placeholder="Enter location " formControlName="location" required></mat-form-field>
+          <br>
+          <mat-form-field appearance="fill"><input matInput type="text" name="imageUrl"
+             placeholder="ImageUrl of the restaurant" formControlName="imageUrl" required></mat-form-field>
+          <br>
+          <mat-form-field appearance="fill"><input matInput type="text" name="restaurantName"
+             placeholder="Enter Restaurant Name" formControlName="restaurantName" required></mat-form-field>
+          <br>
+          <mat-form-field appearance="fill"><input matInput type="number" name="rating" placeholder="Rating"
+             formControlName="rating" required></mat-form-field>
+          <br>
+          <button type="submit" mat-raised-button color="accent" [disabled]="!addform.valid" (click)="addRestaurant()">Add
+          Restaurant</button>
+          <br><br>
+          <button mat-raised-button color="accent" (click)="update()">Update Restaurant </button>
+          </form>
+       </div>
+    </div>
+    
+ </section> -->
+<!-- Updated HTML code for the form -->
+<div id="background">
+<app-header></app-header>
+<div class="container">
+<section class="container mt-5">
+   <div id="formAddRestaurant" class="d-flex justify-content-center">
+     <div id="formBx" class="p-4 rounded shadow-lg bg-light text-dark animate__animated animate__fadeIn">
+       
+      <h2 class="mb-4 text-center">Add New Restaurant</h2>
+ 
+       <form [formGroup]="addform">
+         <div class="mb-3">
+           <mat-form-field appearance="fill" class="w-100">
+             <input matInput type="text" name="restaurantId" placeholder="Enter Restaurant Id" formControlName="restaurantId" required>
+           </mat-form-field>
+         </div>
+ 
+         <div class="mb-3">
+           <mat-form-field appearance="fill" class="w-100">
+             <input matInput type="text" name="location" placeholder="Enter Location" formControlName="location" required>
+           </mat-form-field>
+         </div>
+ 
+         <div class="mb-3">
+           <mat-form-field appearance="fill" class="w-100">
+             <input matInput type="text" name="imageUrl" placeholder="Image URL of the Restaurant" formControlName="imageUrl" required>
+           </mat-form-field>
+         </div>
+ 
+         <div class="mb-3">
+           <mat-form-field appearance="fill" class="w-100">
+             <input matInput type="text" name="restaurantName" placeholder="Enter Restaurant Name" formControlName="restaurantName" required>
+           </mat-form-field>
+         </div>
+ 
+         <div class="mb-3">
+           <mat-form-field appearance="fill" class="w-100">
+             <input matInput type="number" name="rating" placeholder="Rating" formControlName="rating" required>
+           </mat-form-field>
+         </div>
+
+ 
+         <div class="mb-3 text-center">
+            <button type="submit" mat-raised-button color="primary" [disabled]="!addform.valid" (click)="addRestaurant()">Add Restaurant</button>
+          </div>
+  
+          <div class="mb-3 text-center">
+            <button mat-raised-button color="primary" (click)="update()">Update Restaurant</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+<div class="backBtn">
+  <a routerLink="/admin" style=" position:fixed; bottom: 10px; right: 10px; background-color: rgb(205, 149, 175);border-radius: 50%;width:40px;height: 40px;">
+      <i class="fa fa-arrow-circle-left" style=" color: white;font-size: 40px;"></i></a>
+</div>

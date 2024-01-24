@@ -1,0 +1,29 @@
+
+<app-header></app-header>
+
+<div class="background">
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Manage Restaurant</h5>
+            <p class="card-text">Add or edit restaurant information.</p>
+            <button mat-raised-button color="primary" (click)="add()" id="addRes" class="btn btn-primary">Go</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Manage Food Item</h5>
+            <p class="card-text">Add or edit new food items.</p>
+            <button mat-raised-button color="accent" (click)="addFoodItem()" id="addItem" class="btn btn-warning">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
